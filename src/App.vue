@@ -36,6 +36,9 @@
             },
             onMapClick: function () {
                 //alert('click on map')
+            },
+            onSelectedClick: function () {
+
             }
         }
     }

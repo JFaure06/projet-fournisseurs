@@ -4,8 +4,8 @@
         <h1>Carte des fournisseurs</h1>
         <div name="SuppliersMap">
             <GmapMap
-                    :center="{lat:46.603354, lng:1.888334}"
-                    :zoom="7"
+                    :center="{lat:myPosition.latitude, lng:myPosition.longitude}"
+                    :zoom="18"
                     style="width: 100%; height: 800px"
             >
                 <GmapMarker
@@ -29,7 +29,14 @@
 </template>
 
 <script>
+
     const axios = require('axios');
+
+    /*navigator.geolocation.getCurrentPosition(function (position) {
+        const latgps = position.coords.latitude,
+        const lnggps = position.coords.longitude,
+            return latgps, lnggps,
+    })*/
 
     export default {
         name: 'SuppliersMap',
@@ -38,11 +45,28 @@
                 suppliers: [], // au début la liste des fournisseurs est vide
                 loading: false,
                 error: null,
+                myPosition: {
+                    latitude: 46.603354,
+                    longitude: 1.888334
+                }
             }
         },
-        created: function() {
+        created: function () {
             axios.get("https://api-suppliers.herokuapp.com/api/suppliers")
-                .then( response => (this.suppliers = response.data))
-                .catch( error => console.log(error))
+                .then(response => (
+            if (status === true) {
+                this.suppliers = response.data
+            }
+        )
+        )
+        },
+        mounted() {
+            // position request.
+            navigator.geolocation.getCurrentPosition(position => {
+                //console.log(position);
+                this.myPosition = position.coords;
+            });
+        }
+
     }
 </script>
