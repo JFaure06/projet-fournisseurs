@@ -6,7 +6,9 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import router from './router/index.js'
 import * as VueGoogleMaps from 'vue2-google-maps'
 
-Vue.use(BootstrapVue)
+
+
+Vue.use(BootstrapVue);
 Vue.use(VueGoogleMaps, {
     load: {
         key: 'AIzaSyA3TfUM6sZJ06-DTmtriEDFjP6tlln0gi4',

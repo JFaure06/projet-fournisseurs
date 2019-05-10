@@ -18,43 +18,26 @@
 <script>
 
     import Supplier from "./Supplier.vue";
-    import { format, render, cancel, register } from 'timeago.js';
+    //import {format, render, cancel, register} from 'timeago.js';
+    const axios = require('axios');
 
     export default {
         //Supplier,
 
         name: 'SuppliersList',
         components: {Supplier},
+
         data: function () {
             return {
-                suppliers: [
-                    {
-                        id: 1,
-                        name: "CorrectCraft",
-                        status: true,
-                        checkedAt: format(Date.now() - 5 * 1000 * 60 * 60)
-                    },
-                    {
-                        id: 2,
-                        name: "Monte-Carlo SBM",
-                        status: false,
-                        checkedAt: format(Date.now())
-                    },
-                    {
-                      id: 3,
-                      name: "MWS",
-                      status: true,
-                      checkedAt: format(Date.now())
-                    },
-                    {
-                        id: 4,
-                        name: "Swiss Ski School",
-                        status: false,
-                        checkedAt: format(Date.now())
-                    },
-
-                ],
-            };
+                suppliers: [], // au début la liste des fournisseurs est vide
+                loading: false,
+                error: null,
+            }
+        },
+        created: function () {
+            axios.get("https://api-suppliers.herokuapp.com/api/suppliers")
+                .then(response => (this.suppliers = response.data))
+                .catch(error => console.log(error))
         }
 
     }

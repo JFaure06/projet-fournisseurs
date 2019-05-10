@@ -3,10 +3,13 @@
         <img alt="Vue logo" src="./assets/logo.png">
         <HelloWorld msg="Que voulez vous faire ?"/>
         <router-link to="/suppliers">
-            <button type="button" style="background-color: #42b983" class="btn m-1" @click="onSuppliersListClick">Consulter la liste des fournisseurs</button>
+            <button type="button" style="background-color: #42b983" class="btn m-1" @click="onSuppliersListClick">
+                Consulter la liste des fournisseurs
+            </button>
         </router-link>
         <router-link to="/map">
-            <button type="button" style="background-color: #42b983" class="btn " @click="onMapClick">Voir la carte</button>
+            <button type="button" style="background-color: #42b983" class="btn " @click="onMapClick">Voir la carte
+            </button>
         </router-link>
         <router-view></router-view>
         <!--<SuppliersList msg="Liste des fournisseurs"/>
@@ -48,4 +51,4 @@
         margin-top: 60px;
     }
 
- </style>
+</style>
