@@ -54,12 +54,9 @@
         created: function () {
             axios.get("https://api-suppliers.herokuapp.com/api/suppliers")
                 .then(response => (
-            if (status === true) {
-                this.suppliers = response.data
-            }
-        )
-        )
+                    this.suppliers = response.data))
         },
+
         mounted() {
             // position request.
             navigator.geolocation.getCurrentPosition(position => {
