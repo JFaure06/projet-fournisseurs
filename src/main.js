@@ -5,7 +5,9 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import router from './router/index.js'
 import * as VueGoogleMaps from 'vue2-google-maps'
+import './registerServiceWorker'
 //import vSelect from 'vue-select'
+
 
 
 Vue.use(BootstrapVue);

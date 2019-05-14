@@ -8,8 +8,11 @@
             </button>
         </router-link>
         <router-link to="/map">
-            <button type="button" style="background-color: #42b983" class="btn " @click="onMapClick">Voir la carte
+            <button type="button" style="background-color: #42b983" class="btn m-1" @click="onMapClick">Voir la carte
             </button>
+        </router-link>
+        <router-link to="/addsupplier">
+            <button type="button" style="background-color: #42b983" class="btn" @click="onMapClick">Ajout Fournisseurs</button>
         </router-link>
         <router-view></router-view>
         <!--<SuppliersList msg="Liste des fournisseurs"/>

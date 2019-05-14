@@ -9,10 +9,6 @@
             <option value="*">*</option>
         </select>
 
-        <!--<div id="statusFournisseurs">
-            <select :options="options"></select>
-        </div>-->
-
         <section v-if="errored">
             <p>Echec de la requête. Veuillez réessayer!</p>
         </section>
@@ -35,20 +31,11 @@
     </div>
 </template>
 
-
 <script>
 
     import Supplier from "./Supplier.vue";
     //import {format, render, cancel, register} from 'timeago.js';
     const axios = require('axios');
-
-    /*
-    function getSelectValue() {
-        var selectedValue = document.getElementById("statusFournisseurs").value;
-        console.log(selectedValue)
-    }
-    getSelectValue();
-    */
 
     export default {
         //Supplier,
@@ -79,52 +66,12 @@
                 return this.suppliers.filter((supplier) => {
                     if (supplier.status.toString() === this.selected) {
                         return true
-                    } else if (this.selected === '*'){
+                    } else if (this.selected === '*') {
                         return true
                     }
+                    return false
                 })
-            }
+            },
         }
-                /*
-                 computed: {
-                    filteredStatus: function () {
-                        return this.status.filter(stats => {
-                            return stats.type.toLowerCase().indexOf(this.selected.toLowerCase()) > -1
-                        })
-                    }
-                },
-                */
-
-                /*
-                myFunction: function () {
-                var x = document.getElementById("statusFournisseurs").value;
-                document.getElementById("SuppliersList").innerHTML = x;
-            }
-            */
-                /*components: ('v-select', {
-                data: {
-                    options: [
-                        'OK',
-                        'KO',
-                        '*'
-                    ]
-                }
-            }*/
-
-                /*computed: {
-                  evenStatus : function () {
-                      return this.SuppliersList.filter(function (status) {
-                          return status
-                      })
-                  }
-                },
-                filters: {
-                    capitalize: function (value) {
-                        if (!value) return '#id_of_supplierslist';
-                        value = value.toString();
-                        return value.charAt(0).toUpperCase() + value.slice(1)
-                    }
-                }*/
-
-            }
+    }
 </script>
