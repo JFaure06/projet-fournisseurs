@@ -6,6 +6,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import router from './router/index.js'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import './registerServiceWorker'
+import { VudalPlugin } from 'vudal';
 //import vSelect from 'vue-select'
 
 
@@ -17,9 +18,12 @@ Vue.use(VueGoogleMaps, {
         libraries: "places"
     }
 });
+Vue.use(VudalPlugin, {
+    hideModalsOnDimmerClick: true
+});
+
 Vue.config.productionTip = false;
 //Vue.component('v-select', vSelect);
-
 
 new Vue({
     router,

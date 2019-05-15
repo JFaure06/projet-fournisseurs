@@ -15,16 +15,20 @@
         <section v-else>
             <div v-if="loading">Chargement ....</div>
 
-            <div id="id_of_supplierslist" v-else>
+            <div v-else>
                 <ul name="SuppliersList">
-                    <li v-for="value in onFilterStatus()" :key="value.id" class="list-group-item border-dark m-3">
+                    <li v-for="supplier in onFilterStatus()" :key="supplier.id" class="list-group-item border-dark m-3">
 
                         <Supplier
-                                :name="value.name"
-                                :status="value.status"
-                                :checkedAt="value.checkedAt"
-                        />
+                                :name="supplier.name"
+                                :status="supplier.status"
+                                :checkedAt="supplier.checkedAt"
+                                :id="supplier.id"
+                        >
+                        </Supplier>
+
                     </li>
+
                 </ul>
             </div>
         </section>
@@ -56,7 +60,7 @@
             axios.get("https://api-suppliers.herokuapp.com/api/suppliers")
 
                 .then(response => (this.suppliers = response.data))
-                .catch(error => {
+                .catch(() => {
                     this.errored = true
                 })
         },
@@ -64,14 +68,18 @@
         methods: {
             onFilterStatus: function () {
                 return this.suppliers.filter((supplier) => {
+
                     if (supplier.status.toString() === this.selected) {
                         return true
                     } else if (this.selected === '*') {
                         return true
                     }
                     return false
+
                 })
             },
+
+
         }
     }
 </script>

@@ -13,7 +13,9 @@ module.exports = {
         new GenerateSW({
             option: 'value',
             include: [/\.html$/, /\.js$/],
-            importWorkboxFrom: 'local'
+            importWorkboxFrom: 'local',
+            templatedURLs : { '/ app-shell' : [ 'dev / templates / app-shell.hbs' , 'dev / ** / *. css' , ], '/ other-page' : 'mon-version-info' , },
+
         })
     ],
 };

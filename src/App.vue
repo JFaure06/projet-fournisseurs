@@ -12,7 +12,7 @@
             </button>
         </router-link>
         <router-link to="/addsupplier">
-            <button type="button" style="background-color: #42b983" class="btn" @click="onMapClick">Ajout Fournisseurs</button>
+            <button type="button" style="background-color: #42b983" class="btn" @click="onAddClick">Ajout Fournisseurs</button>
         </router-link>
         <router-view></router-view>
         <!--<SuppliersList msg="Liste des fournisseurs"/>
@@ -40,7 +40,7 @@
             onMapClick: function () {
                 //alert('click on map')
             },
-            onSelectedClick: function () {
+            onAddClick: function () {
 
             }
         }
